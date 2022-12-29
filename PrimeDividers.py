@@ -21,9 +21,8 @@ class Solver:
         mapped = []
 
         for i in range(0, len(self.workers) - 1):
-            mapped.append(self.workers[i].mymap(i * step, (i + 1) * step), int(number))
-        mapped.append(
-            self.workers[len(self.workers) - 1].mymap((len(self.workers) - 1) * step, int(number) + 1, int(number)))
+            mapped.append(self.workers[i].mymap(i * step, (i + 1) * step, int(number)))
+        mapped.append(self.workers[len(self.workers) - 1].mymap((len(self.workers) - 1) * step, int(number) + 1, int(number)))
 
         reduced = self.myreduce(mapped)
         self.write_output(reduced)
